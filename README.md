@@ -44,14 +44,17 @@ Out of 22400 labels, I recommend to consider top-500 labels (13 language, 321 ta
 [Split is here (text files of the track indices)](split-language_only-artist_grouped/)
 
 This split is a stratification result based on language labels only. 
-I used a forked/customized class `StratifiedGroupKFold` as you can se in the [artist-grouped stratification notebook](notebooks/artist-grouped-stratified-split.ipynb).
+I used a forked/customized class `StratifiedGroupKFold` as you can see in the [artist-grouped stratification notebook](notebooks/artist-grouped-stratified-split.ipynb).
 See the distributions of training set (top) and testing set (bottom).
 
 ![training-set-split-language_only](figures/occurrence--split-language_only-artist_grouped-training-log.png)
 
 ![testing-set-split-language_only](figures/occurrence--split-language_only-artist_grouped-testing-log.png)
 
-Note that in the testing set, there is no item with language labels: `{'pa', 'lv', 'he', 'cs', 'bg'}`.
+Note that in the testing set, there is no item with language labels: `{'pa', 'lv', 'he', 'cs', 'bg'}`. In practice, probably we can only use top 10-30 languages.
+
+Also note that in language label, the second popular label is `INTRUMENTAL` (mind the typo). 
+This means one would want to ignore this label so that the experiment is not mixed with 'singing vs instrumental classification'.  
 
 ## Few more plots
 
@@ -92,7 +95,7 @@ French
 Spanish
 ![tracks-by-artist-es](figures/number-of-tracks-by-artist_language=es.png)
 
-More pics in [`figures/`](figures/).
+(More figures in [`figures/`](figures/))
 
 ## Notes
 - Seems like some of the tags are just identical to genre labels 
